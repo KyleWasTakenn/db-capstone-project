@@ -1,4 +1,4 @@
-# META Database Project - COURSE 8
+# META DATABASE PROJECT - COURSE 8
 META DB Engineering project
 
 ## Contains:
