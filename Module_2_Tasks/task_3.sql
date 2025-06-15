@@ -27,17 +27,17 @@ INSERT INTO OrderItems (OrderItemID, OrderID, ItemID, Quantity) VALUES
 (99903, 9993, 9999, 5);  -- Quantity > 2
 
 SELECT
-	m.MenuName AS "Menu"
+    mi.CourseName AS "Menu Item Name",
+    COUNT(DISTINCT oi.OrderID) AS "Order Count"
 FROM 
-	Menus m
-WHERE MenuItemID = ANY (
-	SELECT 
-		mi.ItemID
-    FROM
-		MenuItems mi
-	JOIN
-		OrderItems oi ON mi.ItemID = oi.ItemID
-	WHERE
-		oi.Quantity > 2);
+    MenuItems mi
+JOIN
+    OrderItems oi ON mi.ItemID = oi.ItemID
+WHERE
+    oi.Quantity > 2
+GROUP BY
+    mi.ItemID, mi.CourseName
+HAVING
+    COUNT(DISTINCT oi.OrderID) >= 3;
         
 ROLLBACK;
