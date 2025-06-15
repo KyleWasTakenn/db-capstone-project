@@ -42,34 +42,30 @@ DELIMITER ;
 /*
 Notes:
 In order to test this:
--- =============================================
--- SAFE TEST SCRIPT FOR CancelOrder()
--- Uses high IDs (99990+) and ROLLBACK
--- =============================================
 
 -- 1. Start transaction (all changes will be rolled back)
 START TRANSACTION;
-
+SET FOREIGN_KEY_CHECKS = 0;
 -- 2. Create test records (high IDs avoid conflicts)
-INSERT INTO Customers (CustomerID, CustomerFirstName, CustomerLastName, CustomerPhone, CustomerEmail)
+REPLACE INTO Customers (CustomerID, CustomerFirstName, CustomerLastName, CustomerPhone, CustomerEmail)
 VALUES (99990, 'TestCustomer', 'CancelTest', 5550001111, 'cancel_test@example.com');
 
-INSERT INTO Staff (StaffID, StaffName, StaffRole, StaffPhone, StaffEmail, StaffStatus)
+REPLACE INTO Staff (StaffID, StaffName, StaffRole, StaffPhone, StaffEmail, StaffStatus)
 VALUES (99990, 'TestStaff', 'Waiter', 5550002222, 'teststaff@littlelemon.com', 'Active');
 
-INSERT INTO MenuItems (ItemID, StarterName, CourseName, DessertName, ItemCost)
+REPLACE INTO MenuItems (ItemID, StarterName, CourseName, DessertName, ItemCost)
 VALUES (99990, 'TestStarter', 'TestCourse', 'TestDessert', 10.00);
 
-INSERT INTO Bookings (BookingID, BookingCustomerID, BookingTableNo, BookingDate, BookingTime)
+REPLACE INTO Bookings (BookingID, BookingCustomerID, BookingTableNo, BookingDate, BookingTime)
 VALUES (99990, 99990, 99, '2023-12-31', '19:00:00');
 
-INSERT INTO DeliveryStatus (DeliveryID, DeliveryTime, DeliveryStatus, AssignedStaffID)
+REPLACE INTO DeliveryStatus (DeliveryID, DeliveryTime, DeliveryStatus, AssignedStaffID)
 VALUES (99990, NULL, 'Pending', 99990);
 
-INSERT INTO Orders (OrderID, OrderCustomerID, OrderBookingID, OrderStatusID, OrderStaffID, OrderTime)
+REPLACE INTO Orders (OrderID, OrderCustomerID, OrderBookingID, OrderStatusID, OrderStaffID, OrderTime)
 VALUES (99990, 99990, 99990, 99990, 99990, NOW());
 
-INSERT INTO OrderItems (OrderItemID, OrderID, ItemID, Quantity)
+REPLACE INTO OrderItems (OrderItemID, OrderID, ItemID, Quantity)
 VALUES (99990, 99990, 99990, 2);
 
 -- 3. Verify test data exists
@@ -79,13 +75,15 @@ SELECT * FROM OrderItems WHERE OrderID = 99990;
 SELECT * FROM DeliveryStatus WHERE DeliveryID = 99990;
 SELECT * FROM Bookings WHERE BookingID = 99990;
 
+SET FOREIGN_KEY_CHECKS = 1;
+
 -- 4. Call your procedure
 SELECT '=== CALLING CancelOrder(99990) ===' AS Status;
 CALL CancelOrder(99990);
 
 -- 5. Verify cancellation worked
 SELECT '=== AFTER CANCELLATION ===' AS Status;
-SELECT 'Orders' AS Table, COUNT(*) AS Count FROM Orders WHERE OrderID = 99990
+SELECT 'Orders' AS TableName, COUNT(*) AS Count FROM Orders WHERE OrderID = 99990
 UNION ALL
 SELECT 'OrderItems', COUNT(*) FROM OrderItems WHERE OrderID = 99990
 UNION ALL
@@ -98,7 +96,7 @@ ROLLBACK;
 
 -- 7. Final verification
 SELECT '=== POST-ROLLBACK VERIFICATION ===' AS Status;
-SELECT 'Orders' AS Table, COUNT(*) AS Count FROM Orders WHERE OrderID = 99990
+SELECT 'Orders' AS TableName, COUNT(*) AS Count FROM Orders WHERE OrderID = 99990
 UNION ALL
 SELECT 'OrderItems', COUNT(*) FROM OrderItems WHERE OrderID = 99990;
 */
