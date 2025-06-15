@@ -1,3 +1,13 @@
+/*
+Your sixth and final task is to create a stored procedure called CancelOrder.
+Little Lemon want to use this stored procedure to delete
+an order record based on the user input of the order id.
+
+Creating this procedure will allow Little Lemon to cancel any order by
+specifying the order id value in the procedure parameter
+without typing the entire SQL delete statement.
+*/
+
 DELIMITER //
 CREATE PROCEDURE CancelOrder(IN order_id INT)
 BEGIN
@@ -28,3 +38,21 @@ BEGIN
     SELECT CONCAT('Order ', order_id, ' cancelled successfully') AS Result;
 END //
 DELIMITER ;
+
+/*
+Notes:
+In order to test this:
+
+START TRANSACTION;
+
+-- Choose any of the ID's from the below query to use for testing.
+SELECT * FROM Orders;
+
+-- Call the procedure with the selected ID
+CALL CancelOrder(order_id_here);
+
+-- Verify the order has been deleted, and the conditionals are met.
+SELECT * FROM Orders WHERE Orders.OrderID = order_id_here;
+
+
+*/
