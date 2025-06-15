@@ -1,8 +1,5 @@
 /*
-USE THIS SCRIPT IF:
-You fucked up the data and need to roll it back to the defaults.
-Make sure to commit changes afterwards, or rollback if you executed this code and didn't mean to.
-Both COMMIT; and ROLLBACK; are commented out at the bottom.
+USE SCRIPT TO RESET THE DATA BACK TO THE DEFAULT MOCK DATA
 */
 START TRANSACTION;
 SET FOREIGN_KEY_CHECKS = 0;
