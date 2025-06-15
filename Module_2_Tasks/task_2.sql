@@ -24,7 +24,8 @@ GROUP BY
     m.MenuName,
     mi.CourseName,
     mi.StarterName
-HAVING SUM(mi.ItemCost * oi.Quantity) > 150;
+HAVING SUM(mi.ItemCost * oi.Quantity) > 150
+ORDER BY SUM(mi.ItemCost * oi.Quantity);
 
 -- In this dataset, the expected result from this is 0 customers.
 -- No customers have spent > $150 in my data.
