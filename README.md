@@ -9,14 +9,6 @@ META DB Engineering project
 - EER Diagram exported as a PNG from Workbench
 
 ## MODULE 2 TASKS:
-- ~~Change Menu table to MenuItems, containing the Course, Starter, and Dessert name attributes.
-	- ~~Add Menus table, reference the MenuItemsID as a Foreign Key.
-		- ~~Include the MenuName, and Cuisine in this table as attributes.
-- ~~Populate the tables with data... (META why the fuck isn't this included?)
-- ~~Re Forward Engineer the new EER, update the SQL file and PNG.
-	- ~~~Push changes to GitHub, and commit.
-- ~~Proceed with the next tasks
-
 Task 1:
 Create a virtual table called OrdersView that focuses on OrderID, Quantity, and Cost columns from the Orders table. Filter for all orders with a quantity > 2 only.
 
