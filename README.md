@@ -34,7 +34,7 @@ META DB Engineering project
 ### **Task 4**
 
 In this first task, Little Lemon need you to:
-- [x] create a procedure that displays the maximum ordered quantity in the Orders table.
+- [x]create a procedure that displays the maximum ordered quantity in the Orders table.
 
 Creating this procedure will allow Little Lemon to reuse the logic implemented in the procedure easily without retyping the same code over again and again to check the maximum quantity.
 
@@ -42,11 +42,11 @@ Creating this procedure will allow Little Lemon to reuse the logic implemented i
 
 In the second task, Little Lemon need you to help them to create a prepared statement called GetOrderDetail. This prepared statement will help to reduce the parsing time of queries. It will also help to secure the database from SQL injections.
 
-The prepared statement should accept one input argument, the CustomerID value, from a variable.
+- [x] The prepared statement should accept one input argument, the CustomerID value, from a variable.
+- [x] The statement should return the order id, the quantity and the order cost from the Orders table. 
+- [x] Prepared statement should return the order id, the quantity, the cost, and the item total
 
-The statement should return the order id, the quantity and the order cost from the Orders table. 
-
-Once you create the prepared statement, you can create a variable called id and assign it value of 1.
+Once you create the prepared statement, you can create a variable called id and assign it value of 1 (501 in the case of this REPO's example data)
 
 ## **Task 6**
 
