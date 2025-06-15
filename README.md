@@ -2,11 +2,11 @@
 META DB Engineering project
 
 ## MODULE 1 TASKS:
-- [ ] SQL File for Database creation.
-  - [ ] No data, META didn't include any data inserts (So left blank).
+- [x] SQL File for Database creation.
+  - [x] No data, META didn't include any data inserts (So left blank).
   - [x] Obtained from Workbench Forward Engineering.
-- [ ] MySQL Workbench Model File.
-- [ ] EER Diagram exported as a PNG from Workbench.
+- [x] MySQL Workbench Model File.
+- [x] EER Diagram exported as a PNG from Workbench.
 - [x] Once finished, add files to Repo and push to GH.
 
 ## MODULE 2 TASKS:
