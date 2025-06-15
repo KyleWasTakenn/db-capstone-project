@@ -1,3 +1,13 @@
+/*
+Use a JOIN clause to extract information from four tables on all customers
+with a cost more than $150. 
+- Customers table: Customer ID and Full Name
+- Orders table: The Order ID and Cost
+- Menus table: The menus name
+- MenuItems table: Course name and starter name
+
+Sort the result by the lowest cost amount.
+*/
 SELECT
 	c.CustomerID AS "Customer ID",
 	CONCAT(c.CustomerFirstName, " ", c.CustomerLastName) AS "Full Name",

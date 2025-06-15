@@ -1,3 +1,9 @@
+/*
+Create a virtual table called OrdersView that focuses on:
+OrderID, Quantity, and Cost columns from the Orders table.
+
+Filter for all orders with a quantity > 2 only.
+*/
 START TRANSACTION;
 
 CREATE VIEW OrdersView AS

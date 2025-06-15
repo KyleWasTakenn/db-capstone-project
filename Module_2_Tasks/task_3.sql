@@ -1,3 +1,12 @@
+/*
+Find all menu items for which at least 3 orders have been placed.
+Create a subquery that lists the menu names from the menus table
+for any order with a quantity >2.
+
+- Use the ANY operator
+- The outer query should be used to select the Menu name from the menus table.
+- The inner query should check the order quantity.
+*/
 START TRANSACTION;
 -- 1. First, ensure we have some base customers and staff
 INSERT INTO Customers (CustomerID, CustomerFirstName, CustomerLastName, CustomerPhone, CustomerEmail) VALUES
