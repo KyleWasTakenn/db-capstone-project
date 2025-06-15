@@ -55,3 +55,16 @@ Your sixth and final task is to create a stored procedure called CancelOrder. Li
 Creating this procedure will allow Little Lemon to cancel any order by specifying the order id value in the procedure parameter without typing the entire SQL delete statement.
 
 - [x] Check when finished
+
+## **Task 7**
+
+Only wanted us to populate the Bookings table-- which I've already done.
+
+## **Task 8**
+
+Little Lemon need you to create a stored procedure called CheckBooking to check whether a table in the restaurant is already booked. Creating this procedure helps to minimize the effort involved in repeatedly coding the same SQL statements.
+
+The procedure should have two input parameters in the form of booking date and table number. You can also create a variable in the procedure to check the status of each table.
+Procedure must take in 2 parameters-- a date (YYYY-MM-DD) and a table number-- then check whether or not the table is available for booking.
+
+- [x] Check when finished.
