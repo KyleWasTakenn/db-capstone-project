@@ -110,3 +110,11 @@ Create a new procedure called UpdateBooking that they can use to update existing
 The procedure should have two input parameters in the form of booking id and booking date. You must also include an UPDATE statement inside the procedure.
 
 - [x] Check when completed
+
+## **Task 12**
+
+Create a new procedure called CancelBooking that they can use to cancel or remove a booking.
+
+The procedure should have one input parameter in the form of booking id. You must also write a DELETE statement inside the procedure.
+
+- [x] Check when completed
