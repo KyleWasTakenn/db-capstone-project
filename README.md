@@ -101,4 +101,12 @@ The procedure should include four input parameters in the form of the following
 - and table number.
 
 - [x] Check when completed.
-- [x] Added extra handling to optionally use auto-increment, which is already implemented in Bookings.BookingID. 
+- [x] Added extra handling to optionally use auto-increment, which is already implemented in Bookings.BookingID.
+
+## **Task 11**
+
+Create a new procedure called UpdateBooking that they can use to update existing bookings in the booking table.
+
+The procedure should have two input parameters in the form of booking id and booking date. You must also include an UPDATE statement inside the procedure.
+
+- [x] Check when completed
