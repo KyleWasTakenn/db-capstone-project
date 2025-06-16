@@ -88,3 +88,17 @@ Use the following guidelines to complete this task:
 - [x] Use an IF ELSE statement to check if a table is already booked on the given date.
     
 - [x] If the table is already booked, then rollback the transaction. If the table is available, then commit the transaction.
+
+## **Task 10**
+
+Create a new procedure called AddBooking to add a new table booking record.
+
+The procedure should include four input parameters in the form of the following bookings parameters:
+
+- booking id,
+- customer id,
+- booking date,
+- and table number.
+
+- [x] Check when completed.
+- [x] Added extra handling to optionally use auto-increment, which is already implemented in Bookings.BookingID. 
