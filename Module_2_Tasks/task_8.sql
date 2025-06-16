@@ -8,13 +8,18 @@ The procedure should then check the bookings table to see if the
 booking is available.
 */
 DELIMITER //
-CREATE PROCEDURE CheckBooking(IN booking_date DATE, IN table_number INT)
+CREATE PROCEDURE CheckBooking
+(
+	IN booking_date DATE,
+	IN table_number INT
+)
 BEGIN
 	-- Varible that will store the result of the check
     DECLARE is_booked BOOL DEFAULT FALSE;
     
     -- IF statement to check if a booking matching the params exists
-    IF EXISTS (
+    IF EXISTS
+    (
 		SELECT
 			1
         FROM
@@ -25,7 +30,13 @@ BEGIN
 		SET is_booked = TRUE;
 	END IF;
     
-    SELECT IF(is_booked, 'BOOKED', 'OPEN') AS 'Booking Status';
+    IF is_booked THEN
+		SET @result = 'ALREADY BOOKED';
+	ELSE
+		SET @result = 'OPEN';
+	END IF;
+    
+    SELECT @result AS 'Booking Status';
 END//
 
 DELIMITER ;

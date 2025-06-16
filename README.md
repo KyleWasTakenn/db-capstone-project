@@ -68,3 +68,23 @@ The procedure should have two input parameters in the form of booking date and t
 Procedure must take in 2 parameters-- a date (YYYY-MM-DD) and a table number-- then check whether or not the table is available for booking.
 
 - [x] Check when finished.
+
+## **Task 9**
+
+Little Lemon need to verify a booking, and decline any reservations for tables that are already booked under another name.
+
+Since integrity is not optional, Little Lemon need to ensure that every booking attempt includes these verification and decline steps. However, implementing these steps requires a stored procedure and a transaction.
+
+To implement these steps, you need to create a new procedure called AddValidBooking. This procedure must use a transaction statement to perform a rollback if a customer reserves a table that’s already booked under another name.
+
+Use the following guidelines to complete this task:
+
+- [x] The procedure should include two input parameters in the form of booking date and table number.
+    
+- [x] It also requires at least one variable and should begin with a START TRANSACTION statement.
+    
+- [x] Your INSERT statement must add a new booking record using the input parameter's values.
+    
+- [x] Use an IF ELSE statement to check if a table is already booked on the given date.
+    
+- [x] If the table is already booked, then rollback the transaction. If the table is available, then commit the transaction.
