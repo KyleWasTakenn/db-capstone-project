@@ -119,7 +119,7 @@ The procedure should have one input parameter in the form of booking id. You mus
 
 - [x] Check when completed
 
-## **MODULE  TASKS:**
+## **MODULE 3 TASKS:**
 Uploading Tableau workbook, and screenshots to REPO.
 
 ## **TASK 1**
