@@ -213,3 +213,163 @@ Here’s some guidance for completing this task:
 In this final task, you need to create an interactive dashboard that combines the Bar chart called Customers sales and the Sales Bubble Chart. Once you click a bar, and roll over the related bubble, the name, sales and profit figures should be displayed in the Bubble chart.
 
 - [x] Check this box when completed
+
+## **TASK 9**
+
+Your first task is to navigate to your terminal and ensure that Python is installed and available on the command path.
+
+- [x] Check this box when completed
+
+## **TASK 10**
+
+Having established that an up-to date version of python is installed on your machine you will need to install Jupyter.
+(I'm using Jupyter file extension files in VSCode)
+
+- [x] Check this box when completed
+
+## **TASK 11**
+
+Establish a connection between Python and your database using the following steps:
+
+**Step One:**
+Ensure that mysql-connector is installed by running the command:
+
+**Step Two:**
+Import the connector under the alias connector:
+
+```PYTHON
+import mysql.connector as connector
+```
+
+**Step Three:**
+Verify that a connection can be made with your database by calling the connection method from the connector
+
+```PYTHON
+connection = connector.connect
+	(
+     user = "your_user_name",
+     password = "your_password_for_database"
+     )
+```
+
+- [x] Check this box when completed
+
+## **TASK 12**
+
+In the previous exercise you created a Python environment. In the first task of this exercise, you are tasked with extending the environment to connect with your database and interact with the data it holds.
+
+Your first step is to import the connector module, enter your user details and connect with the database (Hint: you can use an alias when importing the module).
+
+This gives you access to all the functionality available from the connector API, which can be accessed through the variable named connector (or whichever alias you choose).
+
+This code should look very familiar to you from the previous course, apart from the parameter db. DB stands for database. When instantiating the connection, you can pass the database name here in place of calling the USE command later.
+
+The final step is to instantiate an instance of cursor to pass queries and return results (Hint: the cursor is part of the connection class outlined above).
+
+```PYTHON
+try:
+     connection = connector.connect(
+          user = "root",
+          password = "Tib4lt_cosmic_!mpo$ter",
+          db = 'littlelemondb'
+          )
+except connector.Error as e:
+     print(f'Error connecting to database: {e}')
+
+cursor = connection.cursor()
+```
+
+- [x] Check this box when completed
+
+## **TASK 13**
+
+In this second task, you now need to query the database to show all tables within the database.
+
+Having established a connection in the first task, you need to execute a test query to ensure that there are no issues. You can do this by executing, or passing, a generic query that returns a snapshot of the database tables.
+
+You need to execute the query on the cursor using the code that follows. The cursor, as you should recall, is the bridge through which you can pass queries and return results.
+
+```PYTHON
+show_tables_query = "SHOW tables" 
+cursor.execute(show_tables_query)
+```
+
+As before, a variable is used to hold the query. To gain a general insight, the query asks to display all tables within the database.
+
+The second line calls the cursor execute method. This method takes the Python string and ports it into a viable SQL statement. It then passes it to the database and returns the result.
+
+To view the results of your query, you can create another variable called _results_ (Hint: the cursor has a method that can return all results in one call).
+
+To view the tables that are associated with a database, you can print out the results variable using the following code:
+
+```PYTHON
+print(results)
+```
+
+- [x] Check this box when completed
+
+## **TASK 14**
+
+**Query with table JOIN**
+
+Little Lemon need you to return specific details from your database. They require the full name and contact details for every customer that has placed an order greater than $60 for a promotional campaign.
+
+You can use the following steps to implement this functionality in your database directory:
+
+**Step One:** Identify which tables are required. To complete the query, you first need to identify which table has the required data.
+
+The bill paid can be found in Orders as TotalCost and the customer contact information can be found in the Customers table.
+
+When selecting attributes from a specific table, specify the table name, followed by a dot and the target attribute as below (Hint: select the column attributes that you will need).
+
+**Step Two:** Next, specify a table (Hint: The FROM keyword allows you to identify a table.)
+
+To join two tables, specify the type of JOIN and the attribute to join the table on. The tables must be joined on an attribute that is common to both tables (such as a common column).
+
+**Step Three:** Finally, include a clause to filter the data on. (Hint: the WHERE clause can be used to add conditional parameters.)
+
+When you have completed these steps, wrap this query as a string and pass it to the .execute() method of the cursor class. When executed, your SELECT query must extract the full name, contact details and bill amount for every customer who spent more than $60.
+
+```PYTHON
+qry_promotional_sales_data = '''
+SELECT
+     CONCAT(c.CustomerFirstName, ' ', c.CustomerLastName) AS 'Full Name',
+     c.CustomerPhone AS 'Customer Phone',
+     c.CustomerEmail AS 'Customer Email',
+     SUM(oi.Quantity * mi.ItemCost) AS 'Order Cost'
+FROM
+     Customers c
+JOIN
+     Orders o ON o.OrderCustomerID = c.CustomerID
+JOIN
+     OrderItems oi ON oi.OrderID = o.OrderID
+JOIN
+     MenuItems mi ON mi.ItemID = oi.ItemID
+GROUP BY
+    c.CustomerID, c.CustomerFirstName, c.CustomerLastName, 
+    c.CustomerPhone, c.CustomerEmail
+HAVING
+     SUM(oi.Quantity * mi.ItemCost) > 60;
+'''
+```
+
+```PYTHON
+'''
+Little Lemon would like the following data:
+From Customers Table:
+- Full Name
+- Email
+- Phone Number
+For every order >$60
+'''
+
+cursor.execute(qry_promotional_sales_data)
+results = sorted(cursor.fetchall())
+
+print(f'Customers valid for upcoming promotion:')
+print(f'Full Name | Phone Number | Email | Total Order Cost\n')
+for result in results:
+     print(f'{result[0]}, {result[1]}, {result[2]}, ${result[3]}')
+```
+
+- [x] Check this box when completed
