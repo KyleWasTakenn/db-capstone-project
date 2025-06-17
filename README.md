@@ -1,6 +1,8 @@
 # META DATABASE PROJECT - COURSE 8
 META DB Engineering project
 
+This README will function as a todo list of all the capstone tasks throughout all modules.
+
 ## MODULE 1 TASKS:
 - [x] SQL File for Database creation.
   - [x] No data, META didn't include any data inserts (So left blank).
