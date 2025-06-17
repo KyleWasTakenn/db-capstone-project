@@ -168,7 +168,7 @@ Here’s some guidance for completing this task:
 
 - [x] Check this box when completed
 
-## ** TASK 5**
+## **TASK 5**
 
 In the second task, you need to create a line chart to show the sales trend from 2019 to 2022.
 
