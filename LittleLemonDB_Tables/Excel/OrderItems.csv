@@ -1,0 +1,9 @@
+OrderItemID,OrderID,Customer,"Order Time","Items Ordered",Quantity,"Total Price"
+10001,501,"Sophia Rossi",18:30:00,"Bruschetta / Spaghetti Carbonara / Tiramisu",1,$22.00
+10002,501,"Sophia Rossi",18:30:00,"Mushroom Risotto / Grilled Salmon / Chocolate Lava Cake",2,$50.00
+10003,502,"Luca Bianchi",19:00:00,"Caprese Salad / Margherita Pizza / Panna Cotta",1,$18.00
+10004,503,"Giulia Romano",20:00:00,"Garlic Bread / Lasagna / Cannoli",3,$60.00
+10005,504,"Marco Ferrari",19:15:00,"Bruschetta / Spaghetti Carbonara / Tiramisu",1,$22.00
+10006,504,"Marco Ferrari",19:15:00,"Garlic Bread / Lasagna / Cannoli",1,$20.00
+10007,505,"Elena Conti",20:30:00,"Mushroom Risotto / Grilled Salmon / Chocolate Lava Cake",2,$50.00
+10008,505,"Elena Conti",20:30:00,"Caprese Salad / Margherita Pizza / Panna Cotta",1,$18.00

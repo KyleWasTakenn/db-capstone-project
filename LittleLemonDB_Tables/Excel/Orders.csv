@@ -1,0 +1,6 @@
+OrderID,Customer,"Order Time","Delivery Status ID","Delivery Status","Handled By","Booking Reference"
+501,"Sophia Rossi",18:30:00,301,Delivered,Isabella,201
+502,"Luca Bianchi",19:00:00,302,Preparing,Riccardo,202
+503,"Giulia Romano",20:00:00,303,Cancelled,Isabella,203
+504,"Marco Ferrari",19:15:00,NULL,NULL,Riccardo,NULL
+505,"Elena Conti",20:30:00,NULL,NULL,Isabella,205

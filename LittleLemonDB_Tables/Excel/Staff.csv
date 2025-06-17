@@ -1,0 +1,5 @@
+StaffID,Name,Role,Phone,Email,Status
+101,Antonio,"Head Chef",5552003000,antonio@littlelemon.com,Active
+102,Isabella,Waiter,5552003001,isabella@littlelemon.com,Active
+103,Riccardo,Waiter,5552003002,riccardo@littlelemon.com,Active
+104,Francesca,Manager,5552003003,francesca@littlelemon.com,Active

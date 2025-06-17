@@ -1,0 +1,4 @@
+DeliveryID,Time,Status,"Assigned Staff"
+301,18:45:00,Delivered,Isabella
+302,19:20:00,Preparing,Antonio
+303,20:15:00,Cancelled,Riccardo
