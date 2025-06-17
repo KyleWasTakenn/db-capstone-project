@@ -306,6 +306,16 @@ To view the tables that are associated with a database, you can print out the re
 print(results)
 ```
 
+```PYTHON
+# Executing Queries
+cursor.execute(qry_show_tables)
+results = sorted(result[0] for result in cursor.fetchall())
+
+print(f'Displaying all tables:')
+for result in results:
+     print(f'- {result}')
+```
+
 - [x] Check this box when completed
 
 ## **TASK 14**
